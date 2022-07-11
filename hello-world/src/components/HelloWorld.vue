@@ -1,11 +1,10 @@
 <template>
-  <div class="hello">
-    <!-- <h1>{{message}}</h1> -->
-    <h3>이름: {{ firstName }}</h3>
-    <h3>성: {{ lastName }}</h3>
-    <h3>풀네임 : {{ fullName }}</h3>
-    <button @click="fullNameGS = 'zerobase school'" >setter button</button>
-
+  <div>
+    <h1>Hello world</h1>
+    <div 
+    class="static"
+    v-bind:class="classObject">
+    </div>
   </div>
 </template>
 
@@ -17,25 +16,16 @@ export default {
   // props: ['todo'],
   data() {
     return {
-      message: '안녕하세요! vue world',
-      firstName: 'sungsu',
-      lastName: 'CHO'
+      isActive: true,
+      hasError: null,
     }
   },
   computed: {
-    fullName() {
-      return this.firstName + ' ' + this.lastName
-    },
-    fullNameGS: {
-      get: function () {
-        return this.firstName + ' ' + this.lastName
-      },
-      set: function (e) {
-        const names = e.split(' ')
-        this.firstName = names[0]
-        this.lastName = names[names.length - 1]
+    classObject () {
+      return {
+        active: this.isActive && !this.error,
+        'text-danger' : this.error && this.error.type === 'fatal',
       }
-
     }
   }
   
