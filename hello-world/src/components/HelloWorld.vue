@@ -1,12 +1,10 @@
 <template>
   <div>
     <h1>Hello world</h1>
-    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }" >
-      첫번째 스타일 바인딩
+    <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex']}">
+      인라인 스타일 바인딩하기(다중 값 제공)
     </div>
-    <div v-bind:style="styleObject" >
-      두번째 스타일 바인딩
-    </div>
+
   </div>
 </template>
 
