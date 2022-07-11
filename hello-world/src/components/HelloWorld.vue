@@ -1,9 +1,11 @@
 <template>
   <div>
     <h1>Hello world</h1>
-    <div 
-    class="static"
-    v-bind:class="classObject">
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }" >
+      첫번째 스타일 바인딩
+    </div>
+    <div v-bind:style="styleObject" >
+      두번째 스타일 바인딩
     </div>
   </div>
 </template>
@@ -18,15 +20,16 @@ export default {
     return {
       isActive: true,
       hasError: null,
+      activeColor: 'red',
+      fontSize: 30,
+      styleObject: {
+        color: 'red',
+        fontSize: '13px',
+      }
     }
   },
   computed: {
-    classObject () {
-      return {
-        active: this.isActive && !this.error,
-        'text-danger' : this.error && this.error.type === 'fatal',
-      }
-    }
+    
   }
   
 }
